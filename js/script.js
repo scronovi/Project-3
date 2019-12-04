@@ -72,8 +72,6 @@ $('.activities input:checkbox').on('click', function(e){
     for(let i = 0; i <= activitiesData.length; i += 1){
         if (activityTarget.attr('data-day-and-time') == activitiesData.attr('data-day-and-time') && activityTarget != activitiesData){
             activitiesData.attr('disabled', true);
-        }else{
-            console.log('does not work');
         }
     }
 });
