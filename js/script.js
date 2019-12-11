@@ -194,21 +194,7 @@ $('#mail').focusout(function(e){
 
 // *** Submit validation ***
 $('button').on('click', function(e){
-    if (nameField === false || emailField === false || checkedBoxes === false){
-        // If any of these fields are invalid, make user aware of which by changing text or border color of that field
-        if(nameField === false){
-            $('#name').css({border: '1.5px solid #EE204D'});
-            $("label[for=name]").css({color: '#EE204D'});
-        }
-        if(emailField === false){
-            $('#mail').css({border: '1.5px solid #EE204D'});
-            $("label[for=mail]").css({color: '#EE204D'});
-        }
-        if(checkedBoxes === false){
-            $(".activities").children('legend').css({color: '#EE204D'});
-        }
-        event.preventDefault();
-    }else if ($('#payment option:selected').val() === 'credit card'){
+    if ($('#payment option:selected').val() === 'credit card'){
         if (nameField === false || emailField === false || checkedBoxes === false || cardNumberField === false || zipField === false || cvvField === false){
             // If any of these fields are invalid, make user aware of which by changing text or border color of that field
             if(nameField === false){
@@ -236,8 +222,25 @@ $('button').on('click', function(e){
             }
             event.preventDefault();
         }
+    }else if (nameField === false || emailField === false || checkedBoxes === false){
+        // If any of these fields are invalid, make user aware of which by changing text or border color of that field
+        if(nameField === false){
+            $('#name').css({border: '1.5px solid #EE204D'});
+            $("label[for=name]").css({color: '#EE204D'});
+        }
+        if(emailField === false){
+            $('#mail').css({border: '1.5px solid #EE204D'});
+            $("label[for=mail]").css({color: '#EE204D'});
+        }
+        if(checkedBoxes === false){
+            $(".activities").children('legend').css({color: '#EE204D'});
+        }
+        event.preventDefault();
+
     }
     else{
         console.log('form submitted');
     }
 });
+
+
